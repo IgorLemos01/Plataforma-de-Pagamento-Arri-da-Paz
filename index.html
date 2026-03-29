@@ -60,22 +60,31 @@ nav{
 .btn-cta:active{transform:translateY(1px)}
 
 /* ── HERO ── */
-.hero{
-  margin-top:112px;
-  width:100%;
-  position:relative;
-  overflow:hidden;
+/* ── HERO ── */
+.hero {
+  margin-top: 112px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: var(--azul-escuro); /* Preenche as laterais caso a tela seja larga */
 }
-.hero img{
-  width:100%;display:block;
-  max-height:75vh;object-fit:cover;object-position:center top;
+.hero img {
+  width: auto;
+  max-width: 100%;
+  max-height: 85vh; /* Altura máxima para a imagem caber na tela */
+  object-fit: contain; /* Garante que a imagem toda apareça sem cortes */
+  display: block;
 }
-.hero-overlay{
-  position:absolute;bottom:0;left:0;right:0;
-  height:160px;
-  background:linear-gradient(to top,var(--azul-escuro),transparent);
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--azul-escuro), transparent);
+  pointer-events: none;
 }
-
 /* ── SECTION BASE ── */
 section{padding:64px 24px;max-width:1100px;margin:0 auto}
 .section-full{padding:64px 24px;background:rgba(0,0,0,.2)}
