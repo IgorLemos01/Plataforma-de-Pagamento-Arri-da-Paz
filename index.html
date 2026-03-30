@@ -757,7 +757,7 @@ footer strong{color:var(--amarelo)}
         <div class="pix-box">
           <h4>✅ Chave Pix</h4>
           <p style="color:rgba(255,255,255,.5);font-size:.82rem">Copie a chave e realize o pagamento</p>
-          <div class="pix-key-display"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5d33322e2e3c3e3c2e3c33322e2e323e353c321d3e32302e353c31323073322f3a">[email&#160;protected]</a></div>
+          <div class="pix-key-display">nossacasanossochao@comshalom.org</div>
           <button class="btn-copy" onclick="copiarPix()">📋 Copiar Chave Pix</button>
           <p class="pix-obs">Informe seu nome no comprovante · Entrada franca + 1kg alimento</p>
         </div>
@@ -804,10 +804,10 @@ footer strong{color:var(--amarelo)}
 </div><!-- form-page -->
 </div><!-- p2 -->
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── CONFIG ──
 const CFG = {
-  WEBHOOK: "SUBSTITUA_PELO_WEBHOOK_N8N"  // URL do webhook n8n
+  WEBHOOK: "https://script.google.com/macros/s/AKfycbz_Sz_tc06wopqbjYbv-gn0yA4o9htEHHNNS5l5bPLjwcWcCQ7Sc7IvUGjLAQ2ADrlf/exec"
 };
 
 // ── BANDEIRINHAS ──
@@ -939,7 +939,7 @@ async function finalizar(){
     data_inscricao:new Date().toLocaleString("pt-BR")
   };
   try{
-    await fetch(CFG.WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(dados),mode:"no-cors"});
+    await fetch(CFG.WEBHOOK,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(dados),mode:"no-cors"});
   }catch(e){}
   // Exibe sucesso
   document.getElementById("stepsWrap").style.display="none";
@@ -980,6 +980,10 @@ document.getElementById("f_cpf").addEventListener("input",function(){
 document.getElementById("f_tel").addEventListener("input",function(){
   let v=this.value.replace(/\D/g,"");
   v=v.replace(/^(\d{2})(\d)/,"($1) $2").replace(/(\d{5})(\d)/,
+"$1-$2");
+  this.value=v;
+});
+
 // ── CARROSSEL ──
 (function(){
   let cur=0, total=4, timer;
